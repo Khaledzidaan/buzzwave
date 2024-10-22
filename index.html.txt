@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram SMM Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Wrapper -->
+    <div style="display: flex; min-height: 100vh; font-family: Arial, sans-serif;">
+        <!-- Sidebar (Left) -->
+        <aside style="width: 250px; background-color: #007bff; padding: 20px; color: white;">
+            <h2 style="color: #fff; text-align: center;">Navigation</h2>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none;">Add Funds</a></li>
+                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none;">Support</a></li>
+                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none;">My Orders</a></li>
+                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none;">Services</a></li>
+                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none;">Contact</a></li>
+            </ul>
+        </aside>
+        <!-- Main Content (Right) -->
+        <div style="flex-grow: 1; padding: 20px; background-color: #f9f9f9;">
+            <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #eef2f7; border-bottom: 2px solid #ddd;">
+                <h1 style="color: #333;">Instagram SMM Panel</h1>
+                <nav>
+                    <ul style="display: flex; list-style-type: none; padding: 0; margin: 0;">
+                        <li style="margin-right: 15px;"><a href="#" style="color: #007bff; text-decoration: none;">Home</a></li>
+                        <li style="margin-right: 15px;"><a href="#" style="color: #007bff; text-decoration: none;">Pricing</a></li>
+                        <li style="margin-right: 15px;"><a href="#" style="color: #007bff; text-decoration: none;">Services</a></li>
+                        <li><a href="#" style="color: #007bff; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section id="services" style="padding: 20px;">
+                <h2 style="text-align: center; color: #333;">Instagram Services</h2>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; background-color: #fff; border-radius: 8px;">
+                        <h3 style="color: #555;">Instagram Likes</h3>
+                        <p>Boost your posts with high-quality Instagram likes.</p>
+                        <strong>Base Price: $1.50 per 1,000 likes</strong>
+                    </li>
+                    <li style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; background-color: #fff; border-radius: 8px;">
+                        <h3 style="color: #555;">Instagram Followers</h3>
+                        <p>Gain genuine followers to grow your Instagram account.</p>
+                        <strong>Base Price: $1.50 per 1,000 followers</strong>
+                    </li>
+                    <li style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; background-color: #fff; border-radius: 8px;">
+                        <h3 style="color: #555;">Instagram Views</h3>
+                        <p>Increase views on your Instagram videos.</p>
+                        <strong>Base Price: $1.50 per 1,000 views</strong>
+                    </li>
+                    <li style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; background-color: #fff; border-radius: 8px;">
+                        <h3 style="color: #555;">Instagram Comments</h3>
+                        <p>Get real and engaging comments for your Instagram posts.</p>
+                        <strong>Base Price: $1.50 per 1,000 comments</strong>
+                    </li>
+                </ul>
+            </section>
+            <section id="order-form" style="padding: 20px; background-color: #eef2f7;">
+                <h2 style="text-align: center; color: #333;">Place an Instagram Order</h2>
+                <form id="orderForm" action="/place-order" method="post" style="max-width: 500px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <label for="service" style="display: block; margin-bottom: 10px;">Select Instagram Service:</label>
+                    <select name="service_id" id="service" required style="width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ddd;">
+                        <option value="likes">Instagram Likes - $1.50 per 1,000</option>
+                        <option value="followers">Instagram Followers - $1.50 per 1,000</option>
+                        <option value="views">Instagram Views - $1.50 per 1,000</option>
+                        <option value="comments">Instagram Comments - $1.50 per 1,000</option>
+                    </select>
+                    <label for="quantity" style="display: block; margin-bottom: 10px;">Quantity (in thousands):</label>
+                    <input type="number" id="quantity" name="quantity" min="1" required style="width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ddd;" oninput="calculatePrice()">
+                    <label for="link" style="display: block; margin-bottom: 10px;">Instagram Post/Account Link:</label>
+                    <input type="url" id="link" name="link" placeholder="Enter the Instagram post/account URL" required style="width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ddd;">
+                    <p>Total Price: <span id="totalPrice">$0.00</span></p>
+                    <button type="submit" style="width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit Order</button>
+                </form>
+            </section>
+            <section id="recent-orders" style="padding: 20px;">
+                <h2 style="text-align: center; color: #333;">Recent Instagram Orders</h2>
+                <ul style="list-style-type: none; padding: 0;">
+                    <!-- Example recent order (you will replace this with your dynamic content) -->
+                    <li style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; background-color: #fff; border-radius: 8px;">
+                        <strong>Service:</strong> Instagram Likes<br>
+                        <strong>Quantity:</strong> 5K<br>
+                        <strong>Total Price:</strong> $7.50<br>
+                        <strong>Status:</strong> <span style="color: green;">Completed</span>
+                    </li>
+                </ul>
+            </section>
+        </div> <!-- End of Main Content -->
+    </div> <!-- End of Main Wrapper -->
+    <script src="script.js"></script>
+</body>
+</html>
